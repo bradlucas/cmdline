@@ -5,13 +5,28 @@
 
 
 (defn -main0
-  "The application's main function"
+  "The application's main function. As an example this is the original -main which shows how you can use args directly"
   [& args]
   (if args
     (println (str "You passed in this value: " args))
     (println "Usage: cmdline VALUE")))
 
+
+(defn run
+  "Print out the options and the arguments"
+  [opts args]
+  (println (str "Options:\n" opts "\n\n"))
+  (println (str "Arguments:\n" args "\n\n")))
+
+
 (defn -main [& args]
+  "More advanced -main which uses clojure.tools.cli to process arguments.
+Note, that cli returns three values
+opts is a map with your arguments which are flags and their values
+args is the arguments which are not flags
+banner is a prettied up string which you can print to the user if there is a problem with the input
+
+"
   (let [[opts args banner]
         (cli args
              ["-h" "--help" "Show help" :flag true :default false]
@@ -34,5 +49,5 @@
          (:message-file opts))
       (do
         (println "")
-        (run opts))
+        (run opts args))
       (println banner))))
