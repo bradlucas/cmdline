@@ -11,6 +11,10 @@ Building Command Line Applications with Clojure Example
 
     $ java -jar cmdline-1.0.0-standalone.jar
 
+## Article
+
+http://beaconhilltechnologysolutions.com/solutions/kb/clojure/building-command-line-applications-with-clojure.html
+
 ## License
 
 Distributed under the Eclipse Public License, the same as Clojure.
